@@ -105,28 +105,31 @@ const App = () => {
 
         {loading ? (
           <div className="flex justify-center my-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
           </div>
         ) : (
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-col space-y-4 w-full"
+            className="relative flex flex-col w-full mt-12 mb-20"
           >
-            {links.map((link) => (
-              <motion.div key={link._id} variants={itemVariants} className="w-full">
-                <LinkButton link={link} onClick={handleLinkClick} />
+            {/* The Tree Trunk */}
+            <div className="absolute left-8 sm:left-1/2 top-0 bottom-[-50px] w-2 bg-gradient-to-b from-emerald-600/80 via-emerald-400/80 to-transparent transform sm:-translate-x-1/2 rounded-full z-0 shadow-[0_0_15px_rgba(52,211,153,0.5)] dark:shadow-[0_0_15px_rgba(52,211,153,0.3)]"></div>
+
+            {links.map((link, index) => (
+              <motion.div key={link._id} variants={itemVariants} className="w-full relative z-10 my-4 sm:my-6">
+                <LinkButton link={link} index={index} onClick={handleLinkClick} />
               </motion.div>
             ))}
           </motion.div>
         )}
       </div>
 
-      {/* Decorative background blobs - Glassmorphism style */}
+      {/* Decorative nature background blobs - Glassmorphism style */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-tr from-purple-300/30 to-fuchsia-300/30 dark:from-purple-900/30 dark:to-fuchsia-900/30 blur-[100px] animate-blob"></div>
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-bl from-blue-300/30 to-cyan-300/30 dark:from-blue-900/30 dark:to-cyan-900/30 blur-[100px] animate-blob animation-delay-2000"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-tr from-emerald-300/20 to-teal-300/20 dark:from-emerald-900/30 dark:to-teal-900/30 blur-[100px] animate-blob"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-bl from-green-300/20 to-emerald-300/20 dark:from-green-900/30 dark:to-emerald-900/30 blur-[100px] animate-blob animation-delay-2000"></div>
       </div>
     </div>
   );
