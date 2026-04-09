@@ -3,6 +3,7 @@ import { Moon, Sun } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProfileCard from './components/ProfileCard';
 import LinkButton from './components/LinkButton';
+import profilePic from './profile.jpeg';
 
 const App = () => {
   const [links, setLinks] = useState([]);
@@ -11,7 +12,7 @@ const App = () => {
 
   const profile = {
     name: "Rabeel Ahmed",
-    avatar: "/profile.jpg",
+    avatar: profilePic,
     bio: "Full-Stack Engineer | Open Source Enthusiast | Building awesome things on the web."
   };
 
