@@ -35,7 +35,8 @@ const App = () => {
     // Fetch links from backend
     const fetchLinks = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/links');
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        const res = await fetch(`${apiUrl}/api/links`);
         if (res.ok) {
           const data = await res.json();
           setLinks(data.length > 0 ? data : getStaticLinks());
@@ -61,7 +62,8 @@ const App = () => {
 
   const handleLinkClick = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/links/click/${id}`, {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      await fetch(`${apiUrl}/api/links/click/${id}`, {
         method: 'POST'
       });
     } catch (error) {
