@@ -35,7 +35,7 @@ const App = () => {
     // Fetch links from backend
     const fetchLinks = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        const apiUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
         const res = await fetch(`${apiUrl}/api/links`);
         if (res.ok) {
           const data = await res.json();
@@ -62,7 +62,7 @@ const App = () => {
 
   const handleLinkClick = async (id) => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const apiUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
       await fetch(`${apiUrl}/api/links/click/${id}`, {
         method: 'POST'
       });
