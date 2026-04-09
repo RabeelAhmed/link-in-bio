@@ -10,8 +10,8 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   const profile = {
-    name: "Alex Developer",
-    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200",
+    name: "Rabeel Ahmed",
+    avatar: "/profile.jpg",
     bio: "Full-Stack Engineer | Open Source Enthusiast | Building awesome things on the web."
   };
 
